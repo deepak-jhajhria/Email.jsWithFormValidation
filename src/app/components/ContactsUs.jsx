@@ -58,6 +58,12 @@ const ContactsUs = () => {
                     (result) => { console.log(result.text); },
                     (error) => { console.log(error.text); },
                 );
+            emailjs.send("service_29d4v7n", "template_pbr1t4p", {
+                from_Deepak: formData.firstName + formData.lastName,
+                to_name: "Deepak",
+                from_name: formData.firstName + formData.lastName,
+                message: formData.msg,
+            }, 'lx417-9z_PTKeaRVv');
             setShowSuccessPopup(true);
             document.body.classList.add("overflow-hidden")
         }
