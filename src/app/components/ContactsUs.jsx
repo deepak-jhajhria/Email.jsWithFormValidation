@@ -1,7 +1,7 @@
 "use client";
 import { useState } from 'react';
 import '../globals.css'
-import { LocationIcon, MailIcon, TelIcon } from './common'
+import { LocationIcon, MailIcon, TelIcon } from './Common'
 import emailjs from '@emailjs/browser';
 const ContactsUs = () => {
 
