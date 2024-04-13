@@ -4,7 +4,11 @@ import '../globals.css'
 import { LocationIcon, MailIcon, TelIcon } from './Common'
 import emailjs from '@emailjs/browser';
 const ContactsUs = () => {
-
+    let day = new Date().getDate()
+    let month = new Date().getMonth() + 1
+    let year = new Date().getFullYear()
+    let dateResult = day + '-' + month + '-' + year
+    console.log(dateResult);
     const [formData, setFormData] = useState({
         firstName: "",
         lastName: "",
@@ -59,9 +63,14 @@ const ContactsUs = () => {
                     (error) => { console.log(error.text); },
                 );
             emailjs.send("service_29d4v7n", "template_pbr1t4p", {
+                // to_email: "deepakjhajhria4657@gmail.com",
                 from_Deepak: formData.firstName + ' ' + formData.lastName,
                 to_name: "Deepak",
+                date: dateResult,
+                user_name: formData.firstName + ' ' + formData.lastName,
                 from_name: formData.firstName + ' ' + formData.lastName,
+                reply_to: formData.mail,
+                subject: "Auto-reply",
                 message: formData.msg,
             }, 'lx417-9z_PTKeaRVv');
             setShowSuccessPopup(true);
