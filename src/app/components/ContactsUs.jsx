@@ -31,12 +31,13 @@ const ContactsUs = () => {
             [name]: value,
         });
     };
+    
     const handleSubmit = (e) => {
         e.preventDefault();
         const regex = {
             name: /^[a-zA-Z\s]+$/,
             mail: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
-            number: /^\d{10}$/,
+            number: /^\d{10}$/, 
         };
         const errors = {};
         // console.log(errors);
@@ -57,7 +58,7 @@ const ContactsUs = () => {
         }
         setFormErrors(errors);
         if (Object.keys(errors).length === 0) {
-            emailjs.sendForm('service_29d4v7n', 'template_pbr1t4p', e.target, 'lx417-9z_PTKeaRVv')
+            emailjs.sendForm('service_29d4v7n', 'template_pbr1t4p', e.target, 'kD1Akj5wINj5Nv6ZV')
                 .then(
                     (result) => { console.log(result.text); },
                     (error) => { console.log(error.text); },
@@ -72,7 +73,7 @@ const ContactsUs = () => {
                 reply_to: formData.mail,
                 subject: "Auto-reply",
                 message: formData.msg,
-            }, 'lx417-9z_PTKeaRVv');
+            }, 'kD1Akj5wINj5Nv6ZV');
             setShowSuccessPopup(true);
             document.body.classList.add("overflow-hidden")
         }
